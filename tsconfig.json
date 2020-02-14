@@ -18,6 +18,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@fabelio/first/*": ["projects/first/src/*"],
+      "@fabelio/domains/*": ["src/fabelio/*"],
+      "@fabelio/core/*": ["src/core/*"],
+      "@fabelio/shared/*": ["src/shared/*"],
+    }
   }
 }

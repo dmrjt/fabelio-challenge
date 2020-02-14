@@ -125,7 +125,7 @@
     "no-output-rename": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
+    "component-class-suffix": [true, "Template", "Page", "Container", "Component"],
     "directive-class-suffix": true
   }
 }
