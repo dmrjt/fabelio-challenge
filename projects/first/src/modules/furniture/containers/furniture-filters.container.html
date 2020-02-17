@@ -3,19 +3,39 @@
   <div class="col-md-6">
     <mat-form-field class="w-100">
       <mat-label>Furniture Style</mat-label>
-      <!-- <mat-select [formControl]="toppings" multiple>
-        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-      </mat-select> -->
-      <input matInput>
+      <mat-select [formControl]="styleControl" multiple>
+        <mat-select-trigger>
+          {{styleControl.value ? styleControl.value[0] : ''}}
+          <span *ngIf="styleControl.value?.length > 1">
+            (+{{styleControl.value.length - 1}}&nbsp;
+            {{styleControl.value?.length === 2 ? 'other' : 'others'}})
+          </span>
+        </mat-select-trigger>
+        <ng-container *ngFor="let style of (furnitureStyles$ | async)">
+          <mat-option [value]="style">
+            {{style}}
+          </mat-option>
+        </ng-container>
+      </mat-select>
     </mat-form-field>
   </div>
   <div class="col-md-6">
     <mat-form-field class="w-100">
       <mat-label>Delivery Time</mat-label>
-      <!-- <mat-select [formControl]="toppings" multiple>
-        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-      </mat-select> -->
-      <input matInput>
+      <mat-select [formControl]="deliveryControl" multiple>
+        <mat-select-trigger>
+          {{deliveryControl.value ? getTimesName(deliveryControl.value[0]) : ''}}
+          <span *ngIf="deliveryControl.value?.length > 1">
+            (+{{deliveryControl.value.length - 1}}&nbsp;
+            {{deliveryControl.value?.length === 2 ? 'other' : 'others'}})
+          </span>
+        </mat-select-trigger>
+        <ng-container *ngFor="let time of deliveryTimes">
+          <mat-option [value]="time.value">
+            {{time.name}}
+          </mat-option>
+        </ng-container>
+      </mat-select>
     </mat-form-field>
   </div>
 </div>

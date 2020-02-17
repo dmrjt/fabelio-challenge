@@ -10,12 +10,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { FurnitureDomainModule } from '@fabelio/domains/furniture/furniture.module';
+import { LoaderModule } from '@fabelio/shared/loader/loader.module';
 
 const COMMON_MODULES = [
   CommonModule,
   ReactiveFormsModule,
+  LoaderModule,
 ];
-const FABELIO_MODULES = [];
+const FABELIO_MODULES = [
+  FurnitureDomainModule,
+];
 const OTHER_MODULES = [
   MatToolbarModule,
   MatFormFieldModule,
@@ -29,7 +34,8 @@ const OTHER_MODULES = [
     ...COMMON_MODULES,
     ...FABELIO_MODULES,
     ...OTHER_MODULES,
-    FurnitureRoutes],
+    FurnitureRoutes,
+  ],
   declarations: [
     ...FURNITURE_COMPONENTS,
     ...FURNITURE_CONTAINERS,

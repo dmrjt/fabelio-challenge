@@ -1,8 +1,25 @@
 
-<div class="row">
-  <ng-container *ngFor="let furniture of [1,2,3,4,5,6]">
-    <div class="col-md-6 mb-3">
-      <fabelio-furniture-item-component></fabelio-furniture-item-component>
-    </div>
-  </ng-container>
-</div>
+<ng-container *ngIf="!(loading$ | async); else loadingTemplate">
+  <div class="row">
+    <ng-container *ngFor="let furniture of (furnitureProducts$ | async)">
+      <div class="col-md-6 mb-3">
+        <fabelio-furniture-item-component [furniture]="furniture"></fabelio-furniture-item-component>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="(furnitureProducts$ | async).length < 1">
+      <div class="col-12">
+        <h4 class="py-5 bg-light text-center text-muted">
+          Not Found.
+        </h4>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #loadingTemplate>
+  <div class="d-flex justify-content-center my-5">
+    <loader-component></loader-component>
+  </div>
+</ng-template>
+
+
