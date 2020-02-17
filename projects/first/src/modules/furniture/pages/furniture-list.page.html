@@ -1,5 +1,16 @@
 <mat-toolbar color="primary">
-  <div class="container">
-    Furniture List
-  </div>
+  <mat-toolbar-row>
+    <div class="container">
+      <fabelio-furniture-searchbar-container></fabelio-furniture-searchbar-container>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <div class="container">
+      <fabelio-furniture-filters-container></fabelio-furniture-filters-container>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
+
+<div class="container mt-3 mb-5">
+  <fabelio-furniture-list-container></fabelio-furniture-list-container>
+</div>
